@@ -1,0 +1,76 @@
+% !TEX program = xelatex
+\documentclass[a4paper, 14pt]{extreport}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+
+% Поддержка русского языка
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Настройка полей (обычно для диплома)
+\usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+
+% Пакеты для абзацев
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm} % Красная строка
+
+% Межстрочный интервал (обычно 1.5)
+\usepackage{setspace}
+\onehalfspacing
+
+% Настройка заголовков (делаем их адекватного размера)
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\Large\bfseries}{\thechapter.}{1em}{}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{1em}{}
+
+\usepackage[parentracker=true, backend=biber, style=gost-numeric, sorting=none]{biblatex}
+\addbibresource{references.bib} % Подключаем ваш файл с базой
+
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{geometry}
+
+\usepackage{tabularx}
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=0pt,parsep=0pt,partopsep=0pt,topsep=0pt}
+\usepackage{float}
+\usepackage{longtable}
+
+
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+% Английские переносы
+\hyphenation{hy-phen-a-tion ex-am-ple com-pu-ter}
+%--------------------------------------
+
+\usepackage[unicode]{hyperref}
+\setlength{\parskip}{0pt}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{booktabs}
+
+\begin{document}
+\input{title_page}
+
+\setcounter{page}{2}
+\renewcommand{\contentsname}{Оглавление}
+\tableofcontents
+
+\input{First_chapter/first_chapter}
+\input{conclusion}
+
+\newpage
+
+% Библиография (отобразится как список литературы с номерами в квадратных скобках)
+\nocite{*}
+\printbibliography[title={Список литературы}]
+
+
+\end{document}
+
